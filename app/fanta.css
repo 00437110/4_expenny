@@ -63,6 +63,7 @@
     --text-selection: '';
 }
 
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --background-primary: #05070f;
@@ -110,7 +111,7 @@
 
         --text-selection: '';
     }
-}
+}*/
 
 * {
     margin: 0;
