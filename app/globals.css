@@ -321,6 +321,10 @@ form textarea{
 
 /*footer*/
 
+footer{
+  margin-top: 2rem;
+}
+
 .hard-line {
   height: 1px;
   background: var(--border-secondary);
