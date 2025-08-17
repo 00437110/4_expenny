@@ -51,14 +51,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head />
       <AuthProvider>
-      <body >
-        {header}
-        <div className="full-line" />
-        <main>
-          {children}
-        </main>
-        {footer}
-      </body>
+        <body >
+          {header}
+          <div className="full-line" />
+          <main>
+            {children}
+          </main>
+          {footer}
+        </body>
       </AuthProvider>
     </html>
   );
