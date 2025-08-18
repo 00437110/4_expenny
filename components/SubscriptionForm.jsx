@@ -3,30 +3,8 @@
 import { useState } from "react"
 
 export default function SubscriptionForm(props) {
-    const { onSubmit,closeInput } = props
-    const [formData, setFormData] = useState({
-        name: '',
-        category: 'Web Services',
-        cost: '',
-        currency: 'USD',
-        billingFrequency: 'Monthly',
-        nextBillingData: '',
-        paymentMethod: 'Credit Card',
-        startDate: '',
-        renewalType: '',
-        notes: '',
-        status: 'Active'
-    })
+    const { onSubmit, closeInput, formData, handleChangeInput } = props
 
-    function handleChangeInput(e) {
-        const newData = {
-            ...formData,
-            [e.target.name]: e.target.value
-
-        } // we will create a new temporary object as form data is immutable
-
-        setFormData(newData)
-    }
 
     function handleFormSubmit(e) {
         e.preventDefault()//prevents the event to reload the webpage
