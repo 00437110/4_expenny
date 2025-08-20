@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function DashboardPage() {
 
-  const isAuthenticated = true
+
 
   const [isAddEntry, setIsAddEntry] = useState(false)
 
@@ -27,7 +27,11 @@ export default function DashboardPage() {
     status: 'Active'
   })
 
+  const { handleDeleteSubscription, userData, currentUser } = useAuth()
+  //const isAuthenticated = true
+  const isAuthenticated = !!currentUser
 
+  console.log(currentUser)
 
   function handleChangeInput(e) {
     const newData = {
@@ -39,18 +43,17 @@ export default function DashboardPage() {
     setFormData(newData)
   }
 
-  const { handleDeleteSubscription, userData } = useAuth()
 
   function handleEditSubscription(index) {
-    const data = userData.subscriptions.find((val,valIndex)=>{
+    const data = userData.subscriptions.find((val, valIndex) => {
       return valIndex === index
-    })
+    }) //we find the entry we want using its index in the userData. Subscriptions, matching the index
 
-    setFormData(data)
+    setFormData(data) // we se that data of the entry in the formData
 
-    handleDeleteSubscription(index)
+    handleDeleteSubscription(index)//we then delete the entry from the subscriptions of the user
 
-    setIsAddEntry(true)
+    setIsAddEntry(true) //then we have correctly set the entry in order to show the form to modify
   }
 
   function handleToggleInput() {
@@ -67,7 +70,7 @@ export default function DashboardPage() {
 
     <>
       <SubscriptionSummary />
-      <SubscriptionsDisplay handleShowInput={isAddEntry ? () => { } : handleToggleInput} />
+      <SubscriptionsDisplay handleEditSubscription={handleEditSubscription} handleShowInput={isAddEntry ? () => { } : handleToggleInput} />
       {isAddEntry && (<SubscriptionForm onSubmit={() => { }} closeInput={handleToggleInput}
         formData={formData} handleChangeInput={handleChangeInput} />)}
     </>

@@ -16,10 +16,10 @@ export function AuthProvider(props) {
 
     const { children } = props
 
-    const { currentUser, setCurrentUser } = useState(null)
-    const { userData, setUserData } = useState(null)
+    const [ currentUser, setCurrentUser ] = useState(null)
+    const [ userData, setUserData ] = useState(null)
     //we by default have no user data or user active
-    const { loading, setLoading } = useState(true) // we add a loading state, when we are checking if a user is authenticated or we're fetching their data
+    const [ loading, setLoading ] = useState(false) // we add a loading state, when we are checking if a user is authenticated or we're fetching their data
 
 
     function signup(email, password) {
@@ -73,8 +73,11 @@ export function AuthProvider(props) {
                 const docSnap = await getDoc(docRef)
 
                 console.log('Fetching user data')
+                let firebaseData = {subscriptions}
 
-                let firebaseData = { subscriptions: [] } // it's our default data of new users
+                //let firebaseData = { subscriptions: [] } // it's our default data of new users
+
+
 
                 if (docSnap.exists()) {
                     //we found data

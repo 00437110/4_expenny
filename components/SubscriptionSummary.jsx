@@ -4,7 +4,7 @@ export default function SubscriptionSummary() {
 
     const summary = calculateSubscriptionMetrics(subscriptions)
 
-    console.log(summary)
+    //console.log(summary)
 
     const emojis = ['🔥', '✅', '⭐️', '⚡️', '🎉', '✨', '🏆', '🌼', '🌱', '🐛', '🐙', '🪼']
 
