@@ -5,7 +5,7 @@ import SubscriptionForm from "@/components/SubscriptionForm";
 import SubscriptionsDisplay from "@/components/SubscriptionsDisplay";
 import SubscriptionSummary from "@/components/SubscriptionSummary";
 import { useAuth } from "@/context/AuthContext";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 const blankSubscription = {
   name: '',
@@ -59,7 +59,7 @@ export default function DashboardPage() {
     setIsAddEntry(true) //then we have correctly set the entry in order to show the form to modify
   }
 
-  function handleResetForm(){
+  function handleResetForm() {
     setFormData(blankSubscription)
   }
 
@@ -75,7 +75,9 @@ export default function DashboardPage() {
 
   if (!isAuthenticated) {
     return (
-      <Login />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Login />
+      </Suspense>
     )
   }
 
