@@ -1,8 +1,11 @@
+import { useAuth } from "@/context/AuthContext"
 import { calculateSubscriptionMetrics, subscriptions } from "@/utils"
 
 export default function SubscriptionSummary() {
 
-    const summary = calculateSubscriptionMetrics(subscriptions)
+    const { userData } = useAuth()
+
+    const summary = calculateSubscriptionMetrics(userData.subscriptions)
 
     //console.log(summary)
 
@@ -15,7 +18,7 @@ export default function SubscriptionSummary() {
                 {Object.keys(summary).map((metric, metricIndex) => {
                     return (
                         <div key={metricIndex} className="analytics-item">
-                            <p> {emojis[metricIndex]} {metric.replaceAll('_',' ')}</p>
+                            <p> {emojis[metricIndex]} {metric.replaceAll('_', ' ')}</p>
                             <h4>{summary[metric]}</h4>
 
                         </div>

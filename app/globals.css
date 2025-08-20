@@ -217,14 +217,14 @@ section>h2 {
 .sub-renewal {
   padding-top: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .sub-renewal h4 {
   margin-top: -0.5rem;
 }
 
-.white-line{
+.white-line {
   background: var(--background-muted);
   height: 3px;
   width: 100%;
@@ -237,7 +237,7 @@ section>h2 {
   transition-duration: 200ms;
   opacity: 0;
   z-index: 10;
-  position:absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -250,8 +250,8 @@ section>h2 {
 
 }
 
-.subscription-actions button{
-  width:100%;
+.subscription-actions button {
+  width: 100%;
 
 }
 
@@ -265,13 +265,18 @@ section>h2 {
 }
 
 .add-subscriptions {
-  aspect-ratio: 16/9;
-  -webkit-box-direction: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4rem 1rem !important;
 }
 
 section form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -283,7 +288,7 @@ section form label {
   max-width: unset;
 }
 
-form textarea{
+form textarea {
   resize: none;
 }
 
@@ -321,7 +326,7 @@ form textarea{
 
 /*footer*/
 
-footer{
+footer {
   margin-top: 2rem;
 }
 
@@ -381,12 +386,12 @@ footer{
   }
 
   .analytics-card {
-    grid-template-columns: repeat(3, minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
   }
 
   .card-container {
-    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 

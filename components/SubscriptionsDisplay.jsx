@@ -15,7 +15,7 @@ export default function SubscriptionsDisplay(props) {
             <h2>Your Subscriptions</h2>
 
             <div className="card-container">
-                {subscriptions.map((sub, subIndex) => {
+                {userData.subscriptions.map((sub, subIndex) => {
 
 
                     const { name, category, cost, currency, billingFrequency, startDate, notes, status } = sub

@@ -7,31 +7,34 @@ import SubscriptionSummary from "@/components/SubscriptionSummary";
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 
+const blankSubscription = {
+  name: '',
+  category: 'Web Services',
+  cost: '',
+  currency: 'USD',
+  billingFrequency: 'Monthly',
+  nextBillingData: '',
+  paymentMethod: 'Credit Card',
+  startDate: '',
+  renewalType: '',
+  notes: '',
+  status: 'Active'
+}
+
 export default function DashboardPage() {
 
 
 
   const [isAddEntry, setIsAddEntry] = useState(false)
 
-  const [formData, setFormData] = useState({
-    name: '',
-    category: 'Web Services',
-    cost: '',
-    currency: 'USD',
-    billingFrequency: 'Monthly',
-    nextBillingData: '',
-    paymentMethod: 'Credit Card',
-    startDate: '',
-    renewalType: '',
-    notes: '',
-    status: 'Active'
-  })
+  const [formData, setFormData] = useState(blankSubscription)
 
-  const { handleDeleteSubscription, userData, currentUser } = useAuth()
+  //destructuring from auth
+  const { handleDeleteSubscription, userData, currentUser, loading } = useAuth()
   //const isAuthenticated = true
   const isAuthenticated = !!currentUser
 
-  console.log(currentUser)
+  //console.log(currentUser)
 
   function handleChangeInput(e) {
     const newData = {
@@ -56,8 +59,18 @@ export default function DashboardPage() {
     setIsAddEntry(true) //then we have correctly set the entry in order to show the form to modify
   }
 
+  function handleResetForm(){
+    setFormData(blankSubscription)
+  }
+
   function handleToggleInput() {
     setIsAddEntry(!isAddEntry)
+  }
+
+  if (loading) {
+    return (
+      <p>Loading...</p>
+    )
   }
 
   if (!isAuthenticated) {
@@ -71,7 +84,7 @@ export default function DashboardPage() {
     <>
       <SubscriptionSummary />
       <SubscriptionsDisplay handleEditSubscription={handleEditSubscription} handleShowInput={isAddEntry ? () => { } : handleToggleInput} />
-      {isAddEntry && (<SubscriptionForm onSubmit={() => { }} closeInput={handleToggleInput}
+      {isAddEntry && (<SubscriptionForm handleResetForm={handleResetForm} closeInput={handleToggleInput}
         formData={formData} handleChangeInput={handleChangeInput} />)}
     </>
 
