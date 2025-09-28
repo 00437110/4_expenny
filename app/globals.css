@@ -1,4 +1,4 @@
-/* body header */
+
 
 body {
   min-height: 100vh;
@@ -49,7 +49,7 @@ main {
   flex: 1;
 }
 
-/*home page*/
+
 .hero-section {
   flex: 1;
   display: grid;
@@ -68,7 +68,6 @@ main {
 .header-text {
   font-size: 2.5rem;
   line-height: 2.5rem;
-
 }
 
 .hero-section svg {
@@ -146,7 +145,7 @@ main {
   width: 30%;
 }
 
-/*dashboard page*/
+
 section {
   display: flex;
   flex-direction: column;
@@ -163,8 +162,6 @@ section>h2 {
   gap: 0.25rem;
   border-radius: var(--border-radius-large);
   overflow: hidden;
-
-
 }
 
 .analytics-item {
@@ -304,7 +301,7 @@ form textarea {
 }
 
 
-/*login*/
+
 
 .login {
   display: flex;
@@ -324,7 +321,7 @@ form textarea {
   gap: 1rem;
 }
 
-/*footer*/
+
 
 footer {
   margin-top: 2rem;
@@ -361,7 +358,7 @@ footer {
   gap: 1rem;
 }
 
-/*media queries*/
+
 
 @media (min-width: 640px) {
   .goto a:first-of-type {

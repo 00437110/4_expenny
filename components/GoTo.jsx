@@ -14,7 +14,7 @@ export default function GoTo() {
 
     return (
         <div className="goto">
-            {path == '/' && (
+            {path == '/' && (            
                 <>
                     <Link href={'/dashboard?register=true'}>
                         <p>Sign up</p>

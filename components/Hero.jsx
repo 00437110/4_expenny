@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export default function Hero() {
+       
     return (
         <div className="hero-section">
-            {/* for the text to*/}
             <div>
                 <p className="header-text"> Gain control <br />of your <br />
                     subscriptions
@@ -22,9 +22,7 @@ export default function Hero() {
 
             </div>
 
-            {/* for the visual display of what the app might look like*/}
             <div className="hero-display">
-                {/*colum number 1*/}
                 <div>
                     <div className="card">
                         <div>
@@ -46,13 +44,9 @@ export default function Hero() {
                             <div className="card-description-small"></div>
 
                         </div>
-
                         <div className="card-square" />
-
                     </div>
                 </div>
-
-                {/*colum number 2*/}
                 <div>
                     <div className="card">
                         <div>
@@ -60,11 +54,8 @@ export default function Hero() {
                             <div className="card-blank"></div>
                             <div className="card-description-large"></div>
                             <div className="card-description-small"></div>
-
                         </div>
-
                         <div className="card-square" />
-
                     </div>
                     <div className="card">
                         <div>
@@ -72,16 +63,10 @@ export default function Hero() {
                             <div className="card-blank"></div>
                             <div className="card-description-large"></div>
                             <div className="card-description-small"></div>
-
                         </div>
-
                         <div className="card-square" />
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     )

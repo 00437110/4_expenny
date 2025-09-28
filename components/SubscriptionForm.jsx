@@ -4,17 +4,16 @@ import { useAuth } from "@/context/AuthContext"
 import { useState } from "react"
 
 export default function SubscriptionForm(props) {
-    const {  closeInput, formData, handleChangeInput, handleResetForm } = props
+    
+    const { closeInput, formData, handleChangeInput, handleResetForm } = props
     const { handleAddSubscription } = useAuth()
 
-
     function handleFormSubmit(e) {
-        e.preventDefault()//prevents the event to reload the webpage
+        e.preventDefault()
         handleAddSubscription(formData)
         handleResetForm()
         closeInput()
     }
-
 
     return (
         <section>
@@ -37,7 +36,6 @@ export default function SubscriptionForm(props) {
                         })}
 
                     </select>
-
 
                 </label>
 
@@ -62,7 +60,7 @@ export default function SubscriptionForm(props) {
                 <label>
                     <span>Billing Frequency</span>
                     <select value={formData.billingFrequency} onChange={handleChangeInput} name="billingFrequency">
-                        {['Monthly', 'Yearly', 'Quaterly', 'One-time'].map((bill, billIndex) => {
+                        {['Monthly', 'Yearly', 'Quarterly', 'One-time'].map((bill, billIndex) => {
                             return (
                                 <option key={billIndex}>
                                     {bill}

@@ -5,43 +5,35 @@ import { useSearchParams } from "next/navigation"
 import { use, useState } from "react"
 
 export default function Login() {
-
     const params = useSearchParams()
-
     const isReg = params.get('register')
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [isRegistration, setIsRegistration] = useState(isReg)
+    const [isRegistration, setIsRegistration] = useState(isReg) 
     const [error, setError] = useState(null)
-    const [authenticating, setAuthenticating] = useState(false) //false by default as a user isn't authenticated when opening the app
+    const [authenticating, setAuthenticating] = useState(false)  
 
     const { signup, login } = useAuth()
 
-
-    async function handleAuthenticate() {
+    async function handleAuthenticate() {    
         if (!email || !email.includes('@') || password.length < 6
             || authenticating) { return }
+
         setError(null)
         setAuthenticating(true)
-        try {
-            if (isRegistration) {
-                //register a user
-                await signup(email, password)
 
-            } else {
-                //login a user
+        try {
+            if (isRegistration) {                
+                await signup(email, password)
+            } else {                
                 await login(email, password)
             }
-
         } catch (err) {
             console.log(err.message)
             setError(err.message)
-        } finally {
+        } finally { 
             setAuthenticating(false)
         }
-
-
 
     }
 
@@ -60,7 +52,6 @@ export default function Login() {
             <div>
                 <p>{isRegistration ? 'Already have an account?' : 'Don\'t have an account?'}</p>
                 <button onClick={() => {
-
                     setIsRegistration(!isRegistration)
                 }}> {isRegistration ? 'Log in' : 'Sign up'}</button>
             </div>

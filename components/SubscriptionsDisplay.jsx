@@ -2,13 +2,12 @@ import { useAuth } from "@/context/AuthContext";
 import { getDaysUntilNextCharge, subscriptions } from "@/utils";
 
 export default function SubscriptionsDisplay(props) {
-
+    
     const {handleShowInput, handleEditSubscription} = props
     const {handleDeleteSubscription, userData } = useAuth()
 
     if(!userData?.subscriptions) {return null}
-
-
+    
     return (
         <section>
 
@@ -16,7 +15,6 @@ export default function SubscriptionsDisplay(props) {
 
             <div className="card-container">
                 {userData.subscriptions.map((sub, subIndex) => {
-
 
                     const { name, category, cost, currency, billingFrequency, startDate, notes, status } = sub
 
@@ -44,7 +42,7 @@ export default function SubscriptionsDisplay(props) {
                                     <h4>{startDate}</h4>
                                 </div>
                                 <div>
-                                    <p>Due</p>
+                                    <p>Due in days</p>
                                     <h4>{getDaysUntilNextCharge(startDate, billingFrequency)}</h4>
                                 </div>
                             </div>

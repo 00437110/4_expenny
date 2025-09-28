@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import "./fanta.css"
 import Head from "./Head";
@@ -12,6 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   const header = (
     <header>
       <div>
@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
       <GoTo></GoTo>
     </header>
   )
+
   const footer = (
     <footer>
       <div className="hard-line" />
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
             <p>|</p>
             <button disabled>Install App</button>
           </div>
-          <p className="copyright">© Copyright 2024-2025, James McArthur.<br />All rights reserved.</p>
+          <p className="copyright">© Copyright 2025, Erick Domínguez.<br />All rights reserved.</p>
         </div>
         <div>
           <p>Facing issues? <a>Get help</a></p>
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
       </div>
     </footer>
   )
+
   return (
     <html lang="en">
       <Head />
